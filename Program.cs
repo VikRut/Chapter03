@@ -117,9 +117,36 @@ namespace Chapter03
                 WriteLine($"{CardinalToOrdinal(number)}");
             }
         }
+        static int Factorial(int number) 
+        {
+            if (number < 1)
+            {
+                return 0;
+            }
+            else if (number == 1)
+            {
+                return 1;
+            }
+            else 
+            {
+                return number * Factorial(number - 1);
+            }
+        }
+        static void RunFactorial() 
+        {
+            Write("Enter number: ");
+            if (int.TryParse(ReadLine(), out int number))
+            {
+                WriteLine($"{number:N0}!={Factorial(number):N0}");
+            }
+            else 
+            {
+                WriteLine("You did not enter number a valid number!");
+            }
+        }
         static void Main(string[] args)
         {
-            RunCardinalToOrdinal();
+            RunFactorial();
         }
     }
 }
